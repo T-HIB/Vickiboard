@@ -1,0 +1,41 @@
+/* Apply the background image to the entire body */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  background-image: url('background.jpg');  /* Update with your image path */
+  background-size: cover;                  /* Ensures the image covers the entire page */
+  background-position: center center;      /* Centers the image */
+  background-attachment: fixed;            /* Keeps the background fixed during scrolling */
+  color: white;                            /* Text color for better contrast */
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.sound-button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: rgba(76, 175, 80, 0.8); /* Transparent green */
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.sound-button:hover {
+  background-color: rgba(56, 145, 56, 0.9); /* Slightly darker green on hover */
+}
+
+.volume-control {
+  margin-top: 20px;
+}
+
+input[type="range"] {
+  width: 200px;
+  margin-top: 10px;
+}
