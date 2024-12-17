@@ -14,9 +14,20 @@ h1 {
   position: absolute;
   top: 10px;
   left: 10px;
-  font-size: 24px;
+  font-size: 30px;
   margin-bottom: 0;
-  color: green;
+  color: white;
+}
+
+/* Center container for sound buttons */
+div {
+    display: flex;           /* Enables flexbox for alignment */
+    justify-content: center; /* Centers buttons horizontally */
+    align-items: center;     /* Centers buttons vertically */
+    flex-wrap: wrap;         /* Allows wrapping if buttons overflow */
+    height: 100vh;           /* Full viewport height */
+    margin: 0;
+    padding: 0;
 }
 
 .sound-button {
