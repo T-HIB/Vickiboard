@@ -1,15 +1,22 @@
 // Variable to keep track of the currently playing audio
 let currentAudio = null;
 
+// Preload all audio files
+const preloadedAudio = {};
+
 // Select all buttons with the class 'sound-button'
 const buttons = document.querySelectorAll('.sound-button');
+
+// Preload the audio files based on button data attributes
+buttons.forEach(button => {
+    const soundFile = button.getAttribute('data-sound');
+    const audio = new Audio(soundFile);
+    preloadedAudio[soundFile] = audio; // Store the preloaded audio in an object
+});
 
 // Add an event listener to each button
 buttons.forEach(button => {
     button.addEventListener('click', () => {
-        // Debugging: Log the current audio state
-        console.log("Stopping current audio if exists:", currentAudio);
-
         // Stop and reset the current audio if it exists
         if (currentAudio) {
             currentAudio.pause();
@@ -19,12 +26,10 @@ buttons.forEach(button => {
         // Get the sound file from the button's data attribute
         const soundFile = button.getAttribute('data-sound');
 
-        // Debugging: Log the sound file being played
-        console.log("Playing new sound file:", soundFile);
-
-        // Create a new Audio object and play the sound
-        currentAudio = new Audio(soundFile);
-        currentAudio.volume = 0.5; // Set volume (0.0 to 1.0)
+        // Play the preloaded audio
+        currentAudio = preloadedAudio[soundFile];
+        currentAudio.currentTime = 0; // Reset to the start of the audio
+        currentAudio.volume = 0.5;   // Set volume (0.0 to 1.0)
         currentAudio.play();
     });
 });
